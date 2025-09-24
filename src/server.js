@@ -1,5 +1,6 @@
 import { app } from "./app.js";
 import cors from "@fastify/cors";
+import { database } from "./database/index.js";
 
 const PORT = process.env.PORT || 3333;
 
@@ -18,6 +19,14 @@ async function server() {
     .then(() => {
       console.log(`HTTP Server is running on Port: ${PORT}`);
     });
+
+  // await database("marcas").insert({
+  //   nome: "apple",
+  //   site: "apple.com",
+  //   telefone: 34210000,
+  // });
+  const query = await database("marcas").select();
+  console.log("Query", query);
 }
 
 server();
