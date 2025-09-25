@@ -19,14 +19,6 @@ async function server() {
     .then(() => {
       console.log(`HTTP Server is running on Port: ${PORT}`);
     });
-
-  // await database("marcas").insert({
-  //   nome: "apple",
-  //   site: "apple.com",
-  //   telefone: 34210000,
-  // });
-  const query = await database("marcas").select();
-  console.log("Query", query);
 }
 
 server();
